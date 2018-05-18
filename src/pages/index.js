@@ -1,23 +1,13 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
-export default ({ data }) => {
-  return (
-    <div>
-      {data.allContentfulPlayers.edges.map(({ node }) => <h2>{node.name}</h2>)}
-    </div>
-  )
-}
+const IndexPage = () => (
+  <div>
+    <h1>Hi people</h1>
+    <p>Welcome to your new Gatsby site.</p>
+    <p>Now go build something great.</p>
+    <Link to="/page-2/">Go to page 2</Link>
+  </div>
+)
 
-export const query = graphql`
-  query IndexQuery {
-    allContentfulPlayers(filter: { node_locale: { eq: "en-US" } }) {
-      edges {
-        node {
-          name
-          node_locale
-        }
-      }
-    }
-  }
-`
+export default IndexPage

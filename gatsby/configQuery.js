@@ -1,4 +1,5 @@
-module.exports = `{
+module.exports = `
+{
     allCharacters {
 		characterSheet {
             fileName
@@ -15,13 +16,34 @@ module.exports = `{
         images {
             fileName
         }
-    name
-    players {
-      name
-      playerSlug
+        name
+        players {
+            name
+            playerSlug
+        }
+        portrait {
+            fileName
+        }
     }
-    portrait {
-      fileName
+    allPlayers {
+        id
+        bio
+        birthDate
+        character {
+            characterSlug
+            name
+        }
+        games{
+            gameSlug
+            name
+        }
+        headshot{
+            fileName
+        }
+        name
+        images{
+            fileName
+        }
+        playerSlug    
     }
-  }
 }`
