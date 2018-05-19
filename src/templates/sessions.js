@@ -1,20 +1,46 @@
-// import React from 'react'
+import React from 'react'
+import * as PropTypes from 'prop-types'
+import Link from 'gatsby-link'
 
-// export default ({ data }) => {
-//   const session = data.contentfulSession
-//   return (
-//     <div>
-//       <h1>{session.game}</h1>
-//       <h2>{session.date}</h2>
-//       {/* <div>{session.players.map(node => <h3>{node.name}</h3>)}</div> */}
-//     </div>
-//   )
-// }
+const propTypes = {
+  data: PropTypes.object.isRequired,
+}
 
-// export const query = graphql`
-//   query SessQuery($id: String!) {
-//     contentfulSession(id: { eq: $id }) {
-//       date
-//     }
-//   }
-// `
+class SessionTemplate extends React.Component {
+  render() {
+    const { sessions } = this.props.data
+    const sessDate = new Date(sessions.sessionDate).toLocaleString('en-US')
+    return (
+      <div>
+        <h1>{sessions.name}</h1>
+        <ul>
+          <li>Game: {sessions.games.name}</li>
+          <li>Date: {sessDate}</li>
+          <li>Location: {sessions.location}</li>
+          <li>Description: {sessions.description}</li>
+        </ul>
+      </div>
+    )
+  }
+}
+
+SessionTemplate.propTypes = propTypes
+
+export default SessionTemplate
+
+export const SessionPageQuery = graphql`
+  query getSessionBySlug($slug: String!) {
+    sessions(sessionSlug: { eq: $slug }) {
+      description
+      games {
+        gameSlug
+        name
+      }
+      id
+      location
+      sessionDate
+      sessionName
+      sessionSlug
+    }
+  }
+`

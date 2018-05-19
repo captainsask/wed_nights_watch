@@ -2,7 +2,7 @@ module.exports = `
 {
     allCharacters {
 		characterSheet {
-            fileName
+            url
         }
         characterSlug
         createdAt
@@ -14,7 +14,7 @@ module.exports = `
         history
         id
         images {
-            fileName
+            url
         }
         name
         players {
@@ -22,7 +22,7 @@ module.exports = `
             playerSlug
         }
         portrait {
-            fileName
+            url
         }
     }
     allPlayers {
@@ -38,12 +38,48 @@ module.exports = `
             name
         }
         headshot{
-            fileName
+            url
         }
         name
         images{
-            fileName
+            url
         }
         playerSlug    
     }
+    allGames{
+        characters{
+          characterSlug
+          name
+        }
+        description
+        gameSlug
+        id
+        name
+        player{
+          name
+          playerSlug
+        }
+        promoImage{
+            url
+        }
+        session{
+          sessionName
+          sessionDate
+          sessionSlug
+        }
+        system
+        startDate
+      }
+      allSessions{
+        description
+        games {
+          gameSlug
+          name
+        }
+        id
+        location
+        sessionDate
+        sessionName
+        sessionSlug
+      }
 }`

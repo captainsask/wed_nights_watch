@@ -6,7 +6,7 @@ module.exports = `
             edges {
                 character: node {
                     characterSheet {
-                        fileName
+                        url
                     }
                     characterSlug
                     createdAt
@@ -23,7 +23,7 @@ module.exports = `
                         playerSlug
                     }
                     portrait {
-                        fileName
+                        url
                     }
                 }
             }
@@ -44,6 +44,50 @@ module.exports = `
                     }
                     name
                     playerSlug
+                }
+            }
+        }
+        allGames {
+            edges {
+                game: node {
+                    characters {
+                        characterSlug
+                        name
+                    }
+                    description
+                    gameSlug
+                    id
+                    name
+                    player {
+                        name
+                        playerSlug
+                    }
+                    promoImage {
+                        url
+                    }
+                    session {
+                        sessionName
+                        sessionDate
+                        sessionSlug
+                    }
+                    system
+                    startDate
+                }
+            }
+        }
+        allSessions {
+            edges{
+                session: node {
+                    description
+                    games {
+                        gameSlug
+                        name
+                    }
+                    id
+                    location
+                    sessionDate
+                    sessionName
+                    sessionSlug
                 }
             }
         }
